@@ -1,14 +1,23 @@
-title: ""
-description: ""
+title: "portfolio"
+description: "where the stuff and things go"
 baseurl: ""
-url: ""
+url: "https://ashleyjohnson90.github.io/"
 
+permalink: pretty
 exclude:
   - demo/
   - cvless.gemspec
   - LICENSE
   - README.md
   - screenshot.png
+
+# author settings
+author:
+  name: ashley johnson
+  email: ashley.johnson73@snhu.edu
+photo: assets/files/photo.jpg
+address: cambridge city, in
+phone: 765.914.4787
 
 plugins:
   - jekyll-feed
