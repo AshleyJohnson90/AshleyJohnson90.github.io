@@ -38,6 +38,8 @@
 
   .particles-icon {
     margin: 0 1em;
+    align-items: center; /* Centers items horizontally */
+    text-align: center; /* Centers text horizontally */
 
     svg {
       -webkit-transform: scale(2.4);
