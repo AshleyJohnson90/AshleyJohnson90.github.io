@@ -45,6 +45,12 @@
     }
   }
 
+    span {
+    margin-top: 5px; /* Adjust vertical spacing between icon and label */
+    font-size: 14px; /* Adjust font size of the label */
+    /* Add any additional styling for the label here */
+  }
+
   .particles-scroll svg {
     -webkit-transform: scale(3.6);
     transform: scale(3.6);
