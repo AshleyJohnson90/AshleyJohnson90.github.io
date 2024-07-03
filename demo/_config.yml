@@ -3,7 +3,7 @@ description: where the stuff and things are
 baseurl: ""
 url: https://AshleyJohnson90.github.io
 
-theme: cvless
+remote_theme: piazzai/cvless
 
 # site settings
 taglong: Jekyll theme for a beautiful online CV
