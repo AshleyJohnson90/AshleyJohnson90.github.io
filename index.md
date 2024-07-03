@@ -3,7 +3,7 @@ layout: home
 title: Home
 ---
 
-# About   
+# about   
 
 hi! welcome to my portfolio   
 
