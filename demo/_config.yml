@@ -1,7 +1,7 @@
-title: cvless
-description: Jekyll theme for a beautiful online CV
+title: portfolio
+description: where the stuff and things are
 baseurl: ""
-url: https://piazzai.github.io/cvless
+url: https://AshleyJohnson90.github.io
 
 theme: cvless
 
@@ -11,11 +11,11 @@ tagshort: Jekyll theme
 
 # author settings
 author:
-  name: Place Holder
-  email: username@domain.com
+  name: ashley johnson
+  email: ashley.johnson73@snhu.edu
 photo: assets/files/photo.jpg
-address: Foobar Hall 1.23
-phone: +1 234 567 890
+address: cambridge city, in
+phone: 765.914.4787
 
 # social media links
 social:
