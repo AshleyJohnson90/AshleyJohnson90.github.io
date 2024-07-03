@@ -38,19 +38,11 @@
 
   .particles-icon {
     margin: 0 1em;
-    align-items: center; /* Centers items horizontally */
-    text-align: center; /* Centers text horizontally */
 
     svg {
       -webkit-transform: scale(2.4);
       transform: scale(2.4);
     }
-
-    
-    span {
-    margin-top: 5px; /* Adjust vertical spacing between icon and label */
-    font-size: 14px; /* Adjust font size of the label */
-    /* Add any additional styling for the label here */
   }
   }
 
