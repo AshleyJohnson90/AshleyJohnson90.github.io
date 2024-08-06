@@ -12,12 +12,12 @@ exclude:
   - screenshot.png
 
 # author settings
-author:
+contact:
   name: ashley johnson
   email: ashley.johnson73@snhu.edu
-photo: assets/files/photo.jpg
-address: cambridge city, in
-phone: 765.914.4787
+  photo: assets/files/photo.jpg
+  address: cambridge city, in
+  phone: 765.914.4787
 
 plugins:
   - jekyll-feed
