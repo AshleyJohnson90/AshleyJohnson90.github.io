@@ -43,4 +43,3 @@ pagination:
   permalink: /:num/
   title: ":title &middot; Page :num"
 
-theme: cvless
