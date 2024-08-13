@@ -56,44 +56,24 @@
 .particles-icon {
     margin: 0 0.5em;
     pointer-events: all;
-
-    svg {
-        -webkit-transform: scale(1.8);
-        transform: scale(1.8);
-    }
-
-    svg circle,
-    svg path {
-        stroke: var(--color-particles-text) !important;
-        stroke-width: 0.05em;
-    }
+    color: white;
 
     &:focus,
     &:hover {
         border: none;
-
-        svg circle,
-        svg path {
-            stroke-width: 0.075em;
-        }
     }
 }
-
 .particles-scroll {
     position: absolute;
     bottom: 5%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    color: white;
 
     .particles-icon {
         position: relative;
         -webkit-animation: pulse 1s infinite;
         animation: pulse 1s infinite;
-    }
-
-    svg {
-        -webkit-transform: scale(2.7);
-        transform: scale(2.7);
     }
 }
