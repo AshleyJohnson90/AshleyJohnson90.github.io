@@ -3,10 +3,10 @@ layout: page
 title: projects
 permalink: /projects
 ---
-[code review] (https://youtu.be/2Z-__CEAhf8)    
+[code review](https://youtu.be/2Z-__CEAhf8)    
    
 
-[full stack webpage] (https://AshleyJohnson90.github.io/courses-page)   
+[full stack webpage](/courses-page)   
    
 
-[text-based adventure game] (https://AshleyJohnson90.github.io/text-game)
+[text-based adventure game](/text-game)
