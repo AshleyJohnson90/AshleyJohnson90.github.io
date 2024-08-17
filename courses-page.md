@@ -3,7 +3,7 @@
 
    
    
-[](assets/App Demo.mp4)
+![](assets/App Demo.mp4)
    
    
 **Briefly describe the artifact. What is it? When was it created?**   
