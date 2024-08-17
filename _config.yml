@@ -13,9 +13,9 @@ exclude:
 
 # author settings
 author:
-  name: ashley johnson
+  name: Ashley Johnson
   email: ashley.johnson73@snhu.edu
-photo: assets/files/photo.jpg
+photo:
 address: cambridge city, in
 phone: 765.914.4787
 
