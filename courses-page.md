@@ -1,7 +1,7 @@
 [artifact](https://github.com/AshleyJohnson90/courses-original){:target="_blank" rel="noopener"}   
 [enhancement](https://github.com/AshleyJohnson90/CoursesPage){:target="_blank" rel="noopener"}   
    
-<video controls autoplay muted width="3" height="15">
+<video controls autoplay muted width="300" height="250">
   <source src="../assets/App-Demo.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
