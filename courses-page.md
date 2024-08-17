@@ -3,7 +3,7 @@
 
    
    
-https://github.com/user-attachments/assets/feadbc52-ad27-40f1-9294-36cec2046809.mp4
+[](assets/App Demo.mp4)
    
    
 **Briefly describe the artifact. What is it? When was it created?**   
