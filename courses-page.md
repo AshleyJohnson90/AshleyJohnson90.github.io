@@ -3,7 +3,7 @@
 
    
    
-![](assets/App Demo.mp4)
+![](https://github.com/AshleyJohnson90/AshleyJohnson90.github.io/blob/main/assets/App%20Demo.mp4)
    
    
 **Briefly describe the artifact. What is it? When was it created?**   
