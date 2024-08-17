@@ -123,10 +123,54 @@ def shortest_path(self, start_location, end_location):
    
 **Did you meet the course outcomes you planned to meet with this enhancement in Module One?  Do you have any updates to your outcome-coverage plans?**   
 
-I did meet the course outcome I planned to meet with this enhancement. I wanted to meet the outcome:   
+I did meet the course outcomes I planned to meet with this enhancement. I wanted to meet the outcomes:   
 1. Design and evaluate computing solutions that solve a given problem using algorithmic principles and computer science practices and standards appropriate to its solution while managing the trade-offs involved in design choices.
+2. Develop a security mindset that anticipates adversarial exploits in software architecture and designs to expose potential vulnerabilities, mitigate design flaws, and ensure privacy and enhanced security of data and resources
    
 The problem with the existing code is that it was sufficient for a basic game with only a few locations to move between, but it would not hold up when adding more complexity. My solution was to update the data structure to a graph and add a depth-first search algorithm cheat to traverse the graph and show the player the directions of the shortest path that visits every room and ends in the Dining Room to win the game. The player will now be able to move quickly between rooms and as more rooms are added, will have a secret cheat that will show them how to easily win the game.   
+
+In the original artifact, if the player typed "get" and any words after that, it would take the item even if they did not tell it to, and if you typed any first word and a direction it would move in that direction.   
+```
+        if len(direction) >= 2 and direction[1] in rooms[current_room].keys():
+            current_room = move_rooms(current_room, direction[1], rooms)
+            continue
+        # getting the item in the room
+        elif len(direction[0]) >= 2 and direction[0] == 'Get':
+            print('You grab the {}'.format(rooms[current_room]['item']))
+            print('-----------------------------------------------------------------------------------------')
+            grab_item(current_room, direction, rooms, inventory)
+            continue
+        # what happens if player enters something other than direction in room dictionary or action
+        else:
+            print('Ooopsies you cannot do that, try another way')
+            print('-----------------------------------------------------------------------------------------')
+            continue
+
+```
+   
+I increased security in my enhancement by being more specific with my input validation. The player must use specific phrases to move or take the item.   
+   
+```
+    # player must enter 'go' and then a direction to make a valid move
+            if action[0] == 'go' and len(action) == 2:
+                direction = action[1]
+                self.move_locations(direction)
+            # player must enter 'take item' to put item in inventory
+            elif action[0] == 'take' and action[1] == 'item':
+                self.grab_item()
+            # player can enter 'cheat' to use the dfs to find the path to win, must use cheat as the very first entry
+            elif action[0] == 'cheat':
+                result = self.graph.shortest_path('Hallway', 'Dining Room')
+                if result:
+                    path_directions = result
+                    path = " -> ".join(path_directions)
+                    print(f'Path to visit all locations and end in the Dining Room: {path}\n'
+                          '-----------------------------------------------------------------------------------------')
+                else:
+                    print('No valid path found ending in the Dining Room.')
+            else:
+                print('Invalid command. Use "go <direction>" or "take item".\n'
+```   
    
 **Reflect on the process of enhancing and modifying the artifact.  What did you learn as you were creating it and improving it?  What challenges did you face?**   
 
