@@ -102,15 +102,107 @@ The table is loaded with course data entered into the CoursesPage Postgres datab
             </TableRow>
         </React.Fragment>
 ```
+
+The original artifact used a binary search tree to store the course data. This would not be sufficient storage for a webpage. The data needs to be persistent and easy to query so a database would be the best approach for data storage.   
+
+I had to create a connection between the ASP.NET Core framework and the Postgres database so they could communicate with each other.
+```
+private readonly IConfiguration _configuration;
+
+public CoursesDatabaseContext(IConfiguration configuration)
+{
+	_configuration = configuration;
+}
+
+public CoursesDatabaseContext(DbContextOptions<CoursesDatabaseContext> options, IConfiguration configuration)
+	: base(options)
+{
+	_configuration = configuration;
+}
+
+public virtual DbSet<Course> Courses { get; set; }
+
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+{
+	if (!optionsBuilder.IsConfigured)
+	{
+		var connectionString = _configuration.GetConnectionString("PostgresDatabase");
+		optionsBuilder.UseNpgsql(connectionString);
+	}
+}
+```
+
+The database could then be constructed using the Entity framework   
+
+```
+	protected override void OnModelCreating(ModelBuilder modelBuilder)
+	{
+		modelBuilder.Entity<Course>(entity =>
+		{
+			entity.HasKey(e => e.Id).HasName("courses_pkey");
+
+			entity.ToTable("courses");
+
+			entity.Property(e => e.Id).HasColumnName("id");
+			entity.Property(e => e.Description).HasColumnName("description");
+			entity.Property(e => e.Name).HasColumnName("name");
+			entity.Property(e => e.Prerequisite).HasColumnName("prerequisite");
+			entity.Property(e => e.Subject).HasColumnName("subject");
+		});
+
+		OnModelCreatingPartial(modelBuilder);
+	}
+
+	partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+}
+```
+
+To query the database and give the webpage the information, I had to create a REST API to communicate with the database. It uses the HTTP GET request to get all the course information that the webpage needs to display. It also allows the table to be sorted by subject but using the HTTP GET method and a subject name to show the courses for the chosen subject.   
+
+```
+namespace CoursesPage.Server.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class TableController : ControllerBase
+    {
+        private readonly CoursesDatabaseContext _context;
+        public TableController(CoursesDatabaseContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
+
+        public async Task<IActionResult> GetAll()
+        {
+            var allCourses = await _context.Courses.ToListAsync();
+
+            return Ok(allCourses);
+        }
+
+        [HttpGet("{subject}")]
+
+        public async Task<IActionResult> GetBySubject([FromRoute] string subject)
+        {
+            var course = await _context.Courses.Where(c => c.Subject == subject).ToListAsync();
+            return Ok(course);
+        }
+    }
+    
+}
+```
    
 **Did you meet the course outcomes you planned to meet with this enhancement in Module One? Do you have any updates to your outcome-coverage plans?**   
    
 I did meet the course outcomes I planned to meet with this enhancement. My enhancements were to meet the outcomes:   
-1. Demonstrate an ability to use well-founded and innovative techniques, skills and tools in computing practices for the purpose of implementing computer solutions that deliver value and accomplish industry-specific goals.
-2. Design, develop, and deliver professional-quality oral, written and visual communications that are coeherent, technically sound, and appropriately adapted to specific audiences and contexts.
+1. Demonstrate an ability to use well-founded and innovative techniques, skills, and tools in computing practices for the purpose of implementing computer solutions that deliver value and accomplish industry-specific goals.
+2. Design, develop, and deliver professional-quality oral, written, and visual communications that are coherent, technically sound, and appropriately adapted to specific audiences and contexts.
 
 I have effectively used innovative technologies by using concepts that were brand new to me to create this enhancement. I have no previous experience using React, C#, ASP.NET Core, or PostgreSQL. These are modern, relevant technologies used by companies large and small to create webpages. The course listing page implements a professional quality visual computer solution that delivers value to students who are searching for classes to take. In just a few clicks they can find out important information about the university's classes.   
    
 **Reflect on the process of enhancing and modifying the artifact. What did you learn as you were creating it and improving it? What challenges did you face?**   
    
-I’ve learned quite a lot while enhancing the artifact. I’ve gotten to practice using the MVC structure to create a full stack application to maintain separation of concerns. I’ve learned about using UI libraries like React and then about open-source component projects built upon React, like Radix and Material UI. I’ve learned how important it is to plan out your application and read documentation of the libraries I used. It’s been a lot of information to take in at one time but I’m learning a lot of valuable lessons to take into a future career. I’ve faced challenges with styling the table where I store the classes. I didn’t realize there were defaults that I couldn’t just change with CSS, I had to create themes that override each default I want to change. This has taught me to inspect computed elements to find the name of the element so I can change it and to also see what is styling it that I do or do not want.
+I’ve learned quite a lot while enhancing the artifact. I’ve gotten to practice using the SPA structure to create a full stack application to maintain separation of concerns. I’ve learned about using UI libraries like React and then about open-source component projects built upon React, like Radix and Material UI. I’ve learned how important it is to plan out your application and read documentation of the libraries I used. It’s been a lot of information to take in at one time but I’m learning a lot of valuable lessons to take into a future career. I’ve faced challenges with styling the table where I store the classes. I didn’t realize there were defaults that I couldn’t just change with CSS, I had to create themes that override each default I want to change. This has taught me to inspect computed elements to find the name of the element so I can change it and to also see what is styling it that I do or do not want.   
+
+The database connects with the backend using a REST API. I learned how to create the API using C# and which HTTP request I need to get my data into my application. I did run into some challenges when creating the API and connecting the database. In the program, there are different ports for HTTPS and HTTP. When I first was setting things up, it was connecting using HTTP when I needed it to use HTTPS but I did not realize this. The terminal was saying there were two different ports open which would then make my database not connect to my application. Because this was my first time ever using ASP.NET Core and Postgres, I didn’t know what to look for to know the database wasn’t connected properly. It took quite a bit of debugging time to figure out why I couldn’t load my data.
