@@ -5,7 +5,7 @@ title: Home
 
 # About    
 
-hi! welcome to my portfolio   
+Hi! Welcome to my portfolio!   
    
 I'm **Ashley Johnson**, a software engineer with a knack for design and detail.   
    
