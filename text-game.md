@@ -83,7 +83,7 @@ def create_graph(self):
         self.graph.add_connection(location1, direction, location2, opposite_direction)
 ```   
    
-I was then able to create a cheat using a depth-first search algorithm to start in the Hallway, visit every room at least once, and end in the Dining Room.   
+I was then able to create a cheat using a depth-first search algorithm to start in the Hallway, visit every room at least once, and end in the Dining Room. **The player will type "cheat" at the very first prompt to access the cheat**   
    
 ```
 # depth first search to find the shortest path to visit all the locations and end in the Dining Room
