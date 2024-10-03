@@ -14,7 +14,7 @@ The original artifact is a program written in C++ that, from the terminal, allow
    
 **Justify the inclusion of the artifact in your ePortfolio. Why did you select this item? What specific components showcase your skills and abilities in software development? How was the artifact improved?**     
    
-I chose this artifact because it shows how I can take a basic, abstract idea of a program and re-engineer it into an application that can be widely used by SNHU students. I improved the artifact by turning it into a full stack web application, porting from C++ to C# and using the ASP.NET Core framework and a PostgreSQL database as the backend and React with Javascript as the frontend.   
+I chose this artifact because it shows how I can take a basic, abstract idea of a program and re-engineer it into an application that can be widely used by SNHU students. I improved the artifact by turning it into a full stack web application, porting from C++ to C# and using .NET framework and a PostgreSQL database as the backend and React with Javascript as the frontend.   
 
 The user can see a table containing all the classes with their prerequisites and can sort by subject.   
 ```
@@ -105,7 +105,7 @@ The table is loaded with course data entered into the CoursesPage Postgres datab
 
 The original artifact used a binary search tree to store the course data. This would not be sufficient storage for a webpage. The data needs to be persistent and easy to query so a database would be the best approach for data storage.   
 
-I had to create a connection between the ASP.NET Core framework and the Postgres database so they could communicate with each other.
+I had to create a connection between .NET and the Postgres database so they could communicate with each other.
 ```
 private readonly IConfiguration _configuration;
 
@@ -199,10 +199,10 @@ I did meet the course outcomes I planned to meet with this enhancement. My enhan
 1. Demonstrate an ability to use well-founded and innovative techniques, skills, and tools in computing practices for the purpose of implementing computer solutions that deliver value and accomplish industry-specific goals.
 2. Design, develop, and deliver professional-quality oral, written, and visual communications that are coherent, technically sound, and appropriately adapted to specific audiences and contexts.
 
-I have effectively used innovative technologies by using concepts that were brand new to me to create this enhancement. I have no previous experience using React, C#, ASP.NET Core, or PostgreSQL. These are modern, relevant technologies used by companies large and small to create webpages. The course listing page implements a professional quality visual computer solution that delivers value to students who are searching for classes to take. In just a few clicks they can find out important information about the university's classes.   
+I have effectively used innovative technologies by using concepts that were brand new to me to create this enhancement. I have no previous experience using React, C#, .NET, or PostgreSQL. These are modern, relevant technologies used by companies large and small to create webpages. The course listing page implements a professional quality visual computer solution that delivers value to students who are searching for classes to take. In just a few clicks they can find out important information about the university's classes.   
    
 **Reflect on the process of enhancing and modifying the artifact. What did you learn as you were creating it and improving it? What challenges did you face?**   
    
 I’ve learned quite a lot while enhancing the artifact. I’ve gotten to practice using the SPA structure to create a full stack application to maintain separation of concerns. I’ve learned about using UI libraries like React and then about open-source component projects built upon React, like Radix and Material UI. I’ve learned how important it is to plan out your application and read documentation of the libraries I used. It’s been a lot of information to take in at one time but I’m learning a lot of valuable lessons to take into a future career. I’ve faced challenges with styling the table where I store the classes. I didn’t realize there were defaults that I couldn’t just change with CSS, I had to create themes that override each default I want to change. This has taught me to inspect computed elements to find the name of the element so I can change it and to also see what is styling it that I do or do not want.   
 
-The database connects with the backend using a REST API. I learned how to create the API using C# and which HTTP request I need to get my data into my application. I did run into some challenges when creating the API and connecting the database. In the program, there are different ports for HTTPS and HTTP. When I first was setting things up, it was connecting using HTTP when I needed it to use HTTPS but I did not realize this. The terminal was saying there were two different ports open which would then make my database not connect to my application. Because this was my first time ever using ASP.NET Core and Postgres, I didn’t know what to look for to know the database wasn’t connected properly. It took quite a bit of debugging time to figure out why I couldn’t load my data.
+The database connects with the backend using a REST API. I learned how to create the API using C# and which HTTP request I need to get my data into my application. I did run into some challenges when creating the API and connecting the database. In the program, there are different ports for HTTPS and HTTP. When I first was setting things up, it was connecting using HTTP when I needed it to use HTTPS but I did not realize this. The terminal was saying there were two different ports open which would then make my database not connect to my application. Because this was my first time ever using .NET and Postgres, I didn’t know what to look for to know the database wasn’t connected properly. It took quite a bit of debugging time to figure out why I couldn’t load my data.
