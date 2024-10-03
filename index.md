@@ -27,4 +27,4 @@ The full stack webpage highlights my ability to create an industry-standard soft
    
 The text-based adventure game allowed me to experiment with many different types of data structures like graphs, trees, and dictionaries to identify the optimal choice for the project. I was able to deep dive into topics that I previously had only surface-level knowledge of. That led me to settle on a graph data structure. From there I was able to research algorithms to traverse the graph, like depth-first search, breadth-first search, and Dijkstra's algorithm. I've gained an immense amount of knowledge on data structure and algorithms by finding the optimal solution for a real-world problem.   
    
-Thank you for visiting my portfolio. I invite you to peruse my work and see how these projects highlight my skills and knowledge as a software engineer. Click the icon above to dive into my projects!
+Thank you for visiting my portfolio. I invite you to peruse my work and see how these projects highlight my skills and knowledge as a software engineer. Click [here](https://ashleyjohnson90.github.io/projects) or the icon at the top to dive into my projects!
